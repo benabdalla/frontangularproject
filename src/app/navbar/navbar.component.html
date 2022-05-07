@@ -1,0 +1,91 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light " style=" padding-top: 2%;font-weight: bold; ">
+  <div class="container">
+    <a class="navbar-brand d-lg-none d-md-block" href="#"><div class="col-12" ><img src="assets/images/logo.png" class="img-fluid" alt="Responsive image"></div></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav navbar-center mr-auto  mt-lg-0" >
+          <li class="nav-item active">
+              <a class="text-uppercase nav-link" href="/categorie/Homme" ><h6>Homme </h6></a>
+            </li>
+            <li class="nav-item active">
+                <a class="text-uppercase nav-link" href="/categorie/Femme"><h6>Femme </h6></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="text-uppercase nav-link" href="/categorie/Enfant"><h6>Enfant </h6></a>
+                </li>
+        </ul>
+        <a class="navbar-brand d-none d-lg-block" href="#" style="width: 100%;padding-left: 15%;padding-right: 10%;"><div><img src="assets/images/logo.png" width="200px" alt="Responsive image"></div></a>
+
+        <div class=" w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+              <!--<li class="nav-item" *ngIf='!user'> <button mat-button [matMenuTriggerFor]="afterMenu">user</button>
+                <mat-menu #afterMenu="matMenu" xPosition="after">
+                  <button mat-menu-item   (click)="openDialog()">Connexion</button>
+                 </mat-menu>
+              </li>
+              <li class="nav-item" *ngIf='user'> <button mat-button [matMenuTriggerFor]="afterMenu"> user </button>
+                <mat-menu #afterMenu="matMenu" xPosition="after">
+                  <button mat-menu-item   (click)="deconexion()">Deonnexion</button>
+                  <a  href="/profil" > <button mat-menu-item  >Mon Compte </button></a>
+
+                 </mat-menu>
+              </li>-->
+              
+              <li class=" dropdown" *ngIf='!user' style="margin-top: 5px;"> 
+                <i class="fa fa-user-o"  style="font-size:22px;" ></i>&nbsp;<span>Connexion</span>
+                <div class="dropdown-content text-center "  style="margin-top: 5px;    min-height: 100px;           ">
+                  
+                  <button    (click)="openDialog()"  type="button" class="btn btn-dark" style="margin-bottom: 20px;margin-top: 20px;border-radius:0%">Connexion</button>
+                  <p (click)="openDialogRegistre()">Rejoignez-nous ici !</p>
+
+                 </div>
+                
+              </li> 
+              
+              <li class=" dropdown" *ngIf='user' style="margin-top: 5px; "> 
+                <i class="fa fa-user-o"  style="font-size:22px;" ></i>&nbsp;<span>{{prenom | slice:0:7}}</span>
+                <div class="dropdown-content text-center "  style="margin-top: 5px;min-height: 140px; ">
+                  
+                 <button    (click)='deconnexion()' type="button" class="btn btn-dark" style="margin-bottom: 20px;margin-top: 20px;border-radius:0%">Déconnexion</button>
+                    <button   class="btn btn-dark" style="border-radius:0%"><a  href="/profil"  style="color: white;text-decoration: none;">Mon Compte </a></button> 
+                </div>
+                
+              </li>
+              <li class="nav-item" *ngIf='user'>
+                <a class="nav-link" (click)="openDialogFavoris()" ><i class="fa fa-heart-o"  style="font-size:20px;"></i>Favoris</a>
+                <a class="nav-link"  *ngIf='!user'><i class="fa fa-heart-o"  style="font-size:20px;"></i>Favoris</a>
+              
+              </li>
+              <!---->
+              <li class="nav-item dropdown" *ngIf='!user'  > 
+                <a class="nav-link"  *ngIf='!user'><i class="fa fa-heart-o"   ></i>Favoris</a>
+                <div class="dropdown-content text-center "  style="margin-top: 5px;    min-height: 90px; min-width: 300px;          ">
+                  
+                   <p (click)="openDialogRegistre()" style="font-weight: normal;margin-top: 15px;">Connectez-vous pour sauvegarder les articles que vous adorez!</p>
+
+                 </div>
+                
+              </li> 
+                      
+              <li class="nav-item" *ngIf='nbrArticles'>
+                <a class="nav-link" href="/panier" ><i class="fa  fa-shopping-bag"  style="font-size:20px;"></i>&nbsp;Panier<span class="badge badge-primary" style="font-size:15px;opacity: 0.5;">{{nbrArticles}}</span></a>                  
+              </li>
+              <!---->
+              <li class="nav-item dropdown" *ngIf='!nbrArticles'  > 
+                <a class="nav-link"  *ngIf='!nbrArticles'><i class="fa fa-shopping-bag"   ></i>Panier</a>
+                <div class="dropdown-content dropdown-menu-right text-center "  style="margin-top: 5px;    min-height: 50px; min-width: 300px;          ">
+                   <p style="font-weight: normal;margin-top: 15px;">Acune article dans votre panier!</p>
+                 </div>
+              </li> 
+              
+            </ul>
+        </div>
+      </div>
+      </div>
+  </nav>

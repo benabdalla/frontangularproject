@@ -1,0 +1,71 @@
+
+<div class="col-md-12 "  >
+            <div class="card "  >
+                <div class="card-head " >
+                    <h5 class="card-header" ><i class="fa fa-arrow-left"  routerLinkActive="active" mat-button mat-dialog-close></i>  Détails de la commande</h5>
+                   <div class='row'>
+                    <div class="card-body col-5">
+                        <h5  class="card-header" style="font-weight: bold;" >Commande n° {{commande.id_cmd}} 
+                              <span style="width: 100px;text-align:center;  font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='Livré'" class="float-right label label-success ">{{commande.etatcommande.etatcmd}}</span>
+                               <span  style="width: 100px;text-align:center;  font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='Annulé'" class="float-right label label-danger ">{{commande.etatcommande.etatcmd}}</span>
+                               <span style="width: 100px;text-align:center; font-size: 14px;color: gray;" *ngIf="commande.etatcommande.etatcmd=='En attente de confirmation'" class="float-right label label-default ">Envoyé</span>
+                               <span style="width: 100px;text-align:center; font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='Confirmé'" class="float-right label label-info  ">{{commande.etatcommande.etatcmd}}</span>
+                                        
+                        </h5> 
+                        <div  style="padding-left: 20px;padding-top: 20px;">
+                        <p><b>{{commande.commande_prod.length}}  Article</b><span *ngIf='commande.commande_prod.length>1'>s</span></p>
+                        <p>Placée le <b>{{commande.date_cmd}}</b></p>
+                        <p>Prix total:<b> {{commande.prix_total}} TND</b></p>
+                        </div>
+                    </div>
+                    <div class="card-body col-7">
+                        <h5  class="card-header" style="font-weight: bold;">livraison</h5>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bold;"> Methode de livraison </h6>
+                     <div *ngIf='!commande.boutique'>
+                        <p> Livraison domicile</p>
+
+
+                        <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bold;"> Adresse de livraison</h6>
+                        <p>{{user.nom}} {{user.prenom}}</p>
+
+                            <p>{{commande.adresse.lib_adresse}}</p>
+                            
+                           <p> {{commande.adresse.city.lib_city}}, {{commande.adresse.city.state}}</p>
+                    </div>
+                    <div *ngIf='commande.boutique'>
+                        <p> Livraison en point relais </p>
+
+
+                        <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bold;"> Adresse de boutique</h6>
+                            <p>{{commande.boutique.lib_boutique}}</p>
+
+                            <p>{{commande.boutique.adresse.lib_adresse}}, {{commande.boutique.adresse.city.lib_city}}, {{commande.boutique.adresse.city.state}}</p>
+                    </div>
+                </div>
+                    </div>
+                    <div class="card-body"  >
+                        <h5  class="card-header" style="font-weight: bold;margin-bottom: 30px;"  >ARTICLES DANS VOTRE COMMANDE</h5>
+
+                   
+                    <div class="card flex-row flex-wrap" *ngFor="let article of commande.commande_prod">
+                        <div class="card-header border-0">
+                            <img [src]="article.article.img_article" width="150px" alt="">
+                        </div>
+                        <div class="card-block px-2">
+                            <h4 class="card-title"><b>{{article.article.designation}}</b></h4>
+                            <p>Ttaille : {{article.taille}}</p>
+                        <p>Quantité : {{article.quantite}} </p>
+                        </div>
+                    <div class="w-100"></div>
+                     
+                </div>
+            </div>
+                  
+         </div>
+    </div>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Fermer</button>
+   </mat-dialog-actions>

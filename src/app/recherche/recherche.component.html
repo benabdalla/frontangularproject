@@ -1,0 +1,93 @@
+
+	
+  <app-navbar2></app-navbar2>
+  
+  <div  class="product-grid"  style="margin-top: 0px;margin-left: 35px;margin-right: 35px;">
+	
+	  <div class="container-fluid" style=" padding-top: 50px;">
+		<div class="row">
+		
+ 			<h3 class="col-lg-12"  style="margin:0px;padding: 0px;padding-bottom: 5%;">Resultat Recherche "{{cle}}"</h3> 
+			<img  class="col-lg-12" src="/assets/images/Cover_categorie.png" width="2000px" class="img-fluid" alt="Responsive image">
+            <p class="col-lg-12" style="padding-left: 0px;padding-top: 10px;font-weight: bold;padding-bottom: 20px;">Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to themall via classes.</p>
+			<div class="col-lg-12 " style="margin:0px;padding: 0px;" >
+			
+		  <div class="col-lg-12 " style="margin:0px;padding: 0px;">
+			<div class="row justify-content-between">
+
+            <div class="btn-group col-4" dropdown style='margin-bottom: 20px;'>
+			  <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle text-left"
+					  aria-controls="dropdown-basic" style="background-color: transparent;color: #222;border: 0px;padding: 0px;font-size: 24px;">
+				Trier par <span class="caret"></span>
+			  </button>
+			  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+				  role="menu" aria-labelledby="button-basic" style="background-color:rgb(238, 225, 225);margin-left: 16px;">
+				<li role="menuitem"*ngIf="this.order!='id_article'" ><a class="dropdown-item"(click)="trier('id_article','id')">Plus récent</a></li>
+				<li role="menuitem" *ngIf="this.order=='id_article'" ><a class="dropdown-item" style="background-color: rgb(160, 140, 140);">Plus récent</a></li>
+
+				<li role="menuitem" *ngIf="!prix_bas"><a class="dropdown-item" (click)="trier('prix','bas')" >Plus bas prix</a></li>
+				<li role="menuitem" *ngIf="this.order=='prix' && prix_bas" ><a class="dropdown-item" style="background-color: rgb(160, 140, 140);">Plus bas prix</a></li>
+
+				<li role="menuitem" *ngIf="!prix_plus"><a class="dropdown-item" (click)="trier('prix','plus')">Prix le plus élevé</a></li>
+				<li role="menuitem" *ngIf="this.order=='prix' && prix_plus" ><a class="dropdown-item" style="background-color: rgb(160, 140, 140);">Prix le plus élevé</a></li>
+
+			</ul>
+			</div>
+			<div class="col-4 text-right">
+				{{filteredProducts.length}} produit<span *ngIf='filteredProducts.length >1'>s</span>
+			</div>
+		  </div>
+	  <!--	  </div>
+	<div  class="product-grid row" >
+		  <div *ngFor="let item of articlese" class=" col-lg-4 product-item ">
+	
+			<div class="product discount product_filter" >
+			  <div class="product_image" style="background-color: #e5f2fa; ">
+				<img src="{{item.img}}"  height="250px"  alt="" style="display: block;margin-left: auto;margin-right: auto;">
+			  </div>
+			  <div class="product_info">
+				<h6 class="product_name"><b><a [routerLink]="['/produit' , item.id, item.cat]">{{item.nom}}</a></b></h6>
+				<div class="product_price">{{item.prix}}<span>DT</span></div>
+			  </div>
+	
+			</div>
+		  </div>
+		</div>
+	  -->
+	  <div >
+		  <!-- sinner -->
+		  <div *ngIf="!filteredProducts" class="alert alert-light col-12 text-center" role="alert"  style="margin-top: 10%;">
+			<h3>Aucune article disponible!</h3>
+		  </div>
+		   <div class="row" >
+			 <div class="card col-xs-12 col-sm-6 col-lg-3 col-xl-3 col-md-6" *ngFor="let article of filteredProducts | orderBy: order:reverse">
+			   <a  [routerLink]="['/detail',article.id_article]"  style="text-decoration: none;color: black;"> 
+             <img class="card-img-top" [src]="article.img_article" alt="Card image cap"   >
+			 <div class="card-body row justify-content-between" style="padding-left: 0px;" *ngIf=" article.taux_remise	 > '0'">
+				<h5 class="col-8  card-title">{{article.designation}}</h5>
+				<mat-chip  class="col-3 card-title text-center">{{ - article.taux_remise}} %</mat-chip> 
+
+				<p class="card-text col-12" style="color:rgb(0, 117, 185);">
+					{{article.prix-(article.prix*article.taux_remise/100)}} TND 
+					<s style="color:rgb(0, 0, 0);"> {{article.prix}} TND </s> </p>
+
+			   </div>
+			<div class="card-body" style="padding-left: 0px;" *ngIf=" article.taux_remise	 == '0'">
+			   <h5 class="card-title">{{article.designation}}</h5>
+			 <p class="card-text" > {{article.prix}} TND </p>
+		   </div>
+			   </a> 
+   
+			 </div>               
+		   </div>
+          </div>
+          
+
+	  </div>
+	</div>
+ 	</div>
+  </div>
+ </div>
+  <app-footer></app-footer>
+  
+  

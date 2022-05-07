@@ -1,0 +1,53 @@
+ 
+      
+        <div class="row" >
+            <!-- column -->
+            <div class="col-9" style="margin-left: 10%;">
+                <div class="card">
+                    <div class="card-body">
+                    
+                        <div class="table-responsive border= 2 ">
+                            <table class="table">
+                                <thead  >
+                                    <tr>
+                                        <th>Reference</th>
+                                        
+                                        <th colspan="2">Articles</th>
+                                        <th>Qte</th>
+
+                                        <th>Date commmande</th>
+                                        <th>Etat</th>
+                                        <th>Détails</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody  *ngFor="let commande of commmandes | filter:searchText" >
+                                    <tr >
+                                        <td>{{commande.id_cmd}}</td>
+
+                                        <td colspan="2" ><span *ngFor="let article of commande.commande_prod" >{{article.article.designation}}   {{article.taille}}<br></span>   </td>
+                                        <td  ><span *ngFor="let article of commande.commande_prod" >{{article.quantite}}<br></span>   </td>
+
+                                        <td>passée le {{commande.date_cmd}} </td>
+                                        <td >
+                                            <span style="width: 100px;text-align:center;  font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='Livré'" class="label label-success font-size=20px">{{commande.etatcommande.etatcmd}}</span>
+                                            <span  style="width: 100px;text-align:center;  font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='Annulé'" class="label label-danger font-size=20px">{{commande.etatcommande.etatcmd}}</span>
+                                            <span style="width: 100px;text-align:center; font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='En attente de confirmation'" class="badge badge-light font-size=20px">Envoyé</span>
+                                            <span style="width: 100px;text-align:center; font-size: 14px;" *ngIf="commande.etatcommande.etatcmd=='Confirmé'" class="label label-info font-size=20px">{{commande.etatcommande.etatcmd}}</span>
+                                        
+                                        </td>
+                                        <td> <a > <i (click)="detailcommande(commande.id_cmd)" style="font-size:15px;color:#2CA7FB"class="fa fa-eye" aria-hidden="true"></i></a></td>
+
+                                    </tr>
+                                                                      
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+
+ 

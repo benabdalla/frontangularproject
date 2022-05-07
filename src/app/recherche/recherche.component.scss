@@ -1,0 +1,134 @@
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../../assets/font/Montserrat-Regular.eot');
+    src: url('../../assets/font/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../assets/font/Montserrat-Regular.woff2') format('woff2'),
+        url('../../assets/font/Montserrat-Regular.woff') format('woff'),
+        url('../../assets/font/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.card{
+    background-color: transparent;
+    border: 0;
+    padding-bottom: 10px;
+}
+ 
+
+.card-body{
+    padding-left: 20%;
+}
+.card-img-top{
+    padding-top: 30px;
+}
+  body{
+      font-family:Montserrat;
+      margin:0;
+      background-color: #e5f2fa; 
+   }
+  a {
+   color: #000;
+   cursor: grab;
+   
+   }
+.navbar{
+
+    background-color: #e5f2fa;
+}
+
+   .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+.navbar-nav.navbar-center>li {
+ margin-left: 50px;
+}
+.container-fluid{
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .social-media i{
+    cursor: pointer;
+  }
+  footer{
+    background-color: #000;
+width: 100%;
+  }
+
+  .row a{
+   text-decoration:none;
+  }
+  #Sous_liste1 li{
+
+opacity: 0.8;  
+}
+ 
+  #Sous_liste1 li:hover{
+    font-weight: bold;
+  }
+
+  ul#menu li {
+    display:inline;
+    }
+    #trier:hover #Sous_liste1{
+    display: block;
+
+    }
+   
+    #Sous_liste1  {display: none;}
+    #Size:hover #Sous_liste2{display: block;}
+    #Sous_liste2  {display: none;}
+    #Fit:hover #Sous_liste3{display: block;}
+    #Sous_liste3  {display: none;}
+    ::ng-deep {
+      .ng5-slider {
+      background-color: #555555 !important;
+      }
+    
+      .ng5-slider .ng5-slider-pointer{
+       width: 14px!important;
+       height: 14px!important;
+       top: auto!important;
+       /* to remove the default positioning */
+       bottom: -4px!important;
+       background-color: #333!important;
+       
+      }
+     
+      
+      .ng5-slider-bar {
+        background-color: #8d8d8d !important;
+
+      }
+      .ng5-slider-pointer:after {
+        display: none!important;
+      }
+     
+    }
+    textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+ 
+.mat-chip{ 
+  background-color: rgb(99, 235, 99) !important;
+ color: rgb(252, 252, 252) ;
+}

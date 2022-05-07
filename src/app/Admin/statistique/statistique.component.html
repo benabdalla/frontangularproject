@@ -1,0 +1,65 @@
+
+<app-navbar-admin></app-navbar-admin>
+<div class="container ">
+ <div class="row ">
+   <mat-card class="row col-2 d-inline p-2 text-center" style="background: linear-gradient(-70deg,#1ABC9C, #A3E4D7);margin:20px ;margin-left: 40px;height: 100px; "><h6>Profit total</h6><i class="col-4 fa fa-usd  d-inline"  aria-hidden="true" style="font-size: 50px;"></i><h5 class="col-6 d-inline">{{chifreaffaire}}</h5>
+   </mat-card>
+  <mat-card class="col-2 ml-auto d-inline p-2 text-center" style="background: linear-gradient(-70deg,#884EA0, #C39BD3) ;margin:20px;"><h6>Nombre Commandes</h6><i style="font-size: 50px;" class="col-4 d-inline fa fa-cart-arrow-down" aria-hidden="true"></i><h5 class="col-6 d-inline">{{nbcommande}}</h5></mat-card>
+  <mat-card class="col-2 ml-auto d-inline p-2 text-center" style="background: linear-gradient(-70deg,#D35400, #EDBB99);margin:20px;margin-right: 40px;"><h6>Nombre utilisateurs</h6><i style="font-size: 50px;" class="col-4 d-inline fa fa-user-o" aria-hidden="true"></i><h5 class="col-6 d-inline">{{nbusers}}</h5>
+  </mat-card>
+  <mat-card class="col-2 ml-auto d-inline p-2 text-center" style="background: linear-gradient(-70deg,#2980B9, #A9CCE3);margin:20px;margin-right: 40px;"><h6>Nombre Produits</h6><i style="font-size: 50px;" class="col-4 d-inline fa fa-archive" aria-hidden="true"></i><h5 class="col-6 d-inline">{{nbarticle}}</h5>
+  </mat-card>
+     <div class="col-lg-6">
+      <mat-card style="background: rgb(255, 255, 255);margin:20px">
+        <h4 style="color:rgb(60, 27, 90);">Categorie</h4>
+
+<div>
+    <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</mat-card>
+  </div>
+
+  <div class="col-lg-6">
+    <mat-card style="background: rgb(255, 255, 255);margin:20px">
+      <h4 style="color:rgb(60, 27, 90);">Etat commande</h4>
+  <div  >
+    <canvas baseChart
+        [chartType]="chartType"
+        [datasets]="chartDatasets"
+        [labels]="etat"
+        [colors]="chartColors"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+  </mat-card>
+</div>
+<div class="col-lg-12">
+  <mat-card style="background: rgb(255, 255, 255);margin:20px">
+  <h2 style="color:rgb(60, 27, 90);">Nombre commande </h2>
+
+  <div  >
+    <canvas baseChart
+        [chartType]="chartType3"
+        [datasets]="chartDatasets3"
+        [labels]="mois"
+        [colors]="chartColors3"
+        [options]="chartOptions3"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+</mat-card>
+  </div>
+  </div>
+  </div>

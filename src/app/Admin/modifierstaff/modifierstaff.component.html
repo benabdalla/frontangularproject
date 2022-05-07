@@ -1,0 +1,72 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="container ">
+    <h1>Modifier staff</h1>
+   
+    <div class="form-group ">
+      <input required type="text" id="exampleInputdesignation1" class="form-control"  name="id" aria-describedby="designationHelp"  [value]="user.id_user" hidden>
+      </div>
+      <div class="form-group row">
+        <label for="inputId3" class="col-sm-1 col-form-label">Id</label>
+
+        <input required type="text" class="col-sm-10" id="exampleInputdesignation1" name="id2" aria-describedby="designationHelp"  [value]="user.id_user" disabled>
+      </div>
+      <div class="form-group">
+        <input required type="text" class="form-control" id="exampleInputdesignation1" name="nom" aria-describedby="designationHelp"  [value]="user.nom"   disabled >
+         
+      </div>
+      <div class="form-group">
+          <input required type="text" class="form-control" id="exampleInputdesignation1" name="prenom" aria-describedby="designationHelp"  [value]="user.prenom"   disabled>
+           
+        </div>
+      <div class="form-group">
+          <input  type="number" class="form-control"  id="exampleInputprix1" name="tel" aria-describedby="prixHelp"  [value]="user.tel" required   disabled>
+           
+        </div>
+        
+        <div class="form-group">
+          <input type="text" class="form-control"  id="exampleInputtva1" name="login" aria-describedby="tvaHelp"  [value]="user.compte.login"   disabled>
+         
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control"  id="exampleInputremise1" name="password" aria-describedby="remiseHelp"  [value]="user.compte.password"    disabled>
+          
+        </div> 
+        <section class="example-section">
+          <p>Etat compte </p>
+
+          <mat-slide-toggle
+          [(ngModel)]="checked"
+          class="example-margin"
+          [color]="color"
+          (change)="changed()">
+          <span *ngIf='!checked'>Désactiver</span> 
+          <span *ngIf='checked'>Active</span> 
+        </mat-slide-toggle>
+              </section>
+              <form    (ngSubmit)="onFormSubmit($event)" >
+
+        <div class="form-row">
+          <div class="col">
+  
+            <label for="exampleFormControlSelect1" style="opacity: 0.7;">Région</label>
+            <select name="state"  id="exampleFormControlSelect1" [value]='stateCount'  class="rounded-inputs20 select-select form-control" (change)="onChangeState($event.target.value)"  >
+            <option *ngFor="let country of countries"   [value]="country.id_state">{{country.lib_state}}</option>
+           </select>        
+          </div>
+          <div class="col">
+  
+          <label for="sel1" style="opacity: 0.7;">Ville</label>
+        
+          <select id="sel1" name="city" [value]="cityCount" class="rounded-inputs20 select-select form-control form-control-line" #adresseInput (change)='modifier()' >
+          <option *ngFor="let ct of city" [value]="ct.id_city">{{ct.lib_city}}</option>  
+          </select>
+        </div>
+        </div>     
+     <br>
+        <br>
+      
+      <button  class="btn btn-primary">Modifier</button>
+    </form>
+    
+  </div>

@@ -1,0 +1,11 @@
+    .social-media i{
+        cursor: pointer;
+      }
+      footer{
+        background-color: #e4e4e4;
+    width: 100%;
+      }
+  
+      .row a{
+       text-decoration:none;
+      }

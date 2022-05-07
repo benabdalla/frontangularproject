@@ -1,0 +1,207 @@
+<app-navbar></app-navbar>
+
+<app-cover ></app-cover>
+<!--
+<div class="container">
+    <div class="justify-content-center" >
+    
+      <div >
+       
+        <div class="row" >
+           
+          <div class="card col-xs-12 col-sm-6 col-lg-3 col-xl-3 col-md-6" *ngFor="let article of Articles">
+            
+            <a  [routerLink]="['/detail',article.id_article]" > 
+              <img class="card-img-top" [src]="article.img_article" alt="Card image cap"   >
+              <div class="card-body">
+                <h5 class="card-title">{{article.designation}}</h5> 
+                <p class="card-text"><small class="text-muted">{{article.prix}} TND</small></p>
+                
+              </div>
+            
+            </a> 
+          </div>               
+        </div>
+
+</div>
+
+</div>
+</div>
+ 
+-->
+<div class="container " style="margin-bottom: 50px;margin-top: 50px; ">
+  <h2 class="text-uppercase text-center"><b>Tendance.</b></h2>
+
+  <div class="row d-flex justify-content-between text-center">
+
+    <div class="col-sm-4 col-xs-12  row align-items-center "   style="background-image:  url('assets/images/Tendance1.PNG');height:500px; background-repeat: no-repeat;
+    background-size: 100% 100%;margin-top: 2%;margin-bottom: 2%;padding-top: 250px;">
+         <div class="inner" style="color: white;text-shadow: #000 3px 0 10px;">
+           <h3>Denim Jeans</h3>
+          <button type="button" class="btn btn-outline-light" style="width: 150px;margin-top: 70px; border-radius: 0px;text-shadow: #000 3px 0 10px;">En savoire plus</button>
+         </div>
+    </div>
+     <div  class="col-sm-4 col-xs-12   row align-items-center "  style="background-image:  url('assets/images/Tendance2.PNG');height:500px; background-repeat: no-repeat;
+    background-size: 100% 100%;margin-top: 2%;margin-bottom: 2%;padding-top: 250px;">
+            <div class="inner" style="color: white;text-shadow: #000 3px 0 10px;">
+               <h3>Casual Wear</h3>
+              <button type="button" class="btn btn-outline-light" style="width: 150px;margin-top: 70px; border-radius: 0px;text-shadow: #000 3px 0 10px;">En savoire plus</button>
+              </div>
+    </div>
+     
+    <div class="col-sm-4 col-xs-12  row align-items-center"   style="background-image:  url('assets/images/Tendance3.PNG');height:500px; background-repeat: no-repeat;
+    background-size: 100% 100%;margin-top: 2%;margin-bottom: 2%;padding-top: 250px;">
+           <div class="inner" style="color: white;text-shadow: #000 3px 0 10px;">
+             <h3 >Nouveautés enfants</h3>
+            <button type="button" class="btn btn-outline-light" style="width: 150px;margin-top: 35px; border-radius: 0px;text-shadow: #000 3px 0 10px;">En savoire plus</button>
+           </div>
+              
+         
+    </div>
+  </div>
+  </div>
+
+  
+<div class="text-center container-fluid d-flex align-content-center flex-wrap cover_body"  style="background-image:  url('assets/images/Cover_body.PNG');">
+  <div class=" row ">
+    <div class="banner-left text-left" style="margin-top: -5%;color: #000;text-shadow: #000 3px 0 10px;">
+        <h4 class="text-uppercase">Sport, énergie,dynamisme et passion</h4>
+      <br>
+        <button type="button" class="btn btn-outline-dark" style="font-size: 20px; width: 150px;height: 50px; margin: 5px;border-radius: 0px;text-shadow: #fff 3px 0 10px;">Découvrire</button>
+
+    </div>
+</div>
+</div>
+  <div class="container" style="margin-bottom: 50px;margin-top: 50px;">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-uppercase text-center"><b>Promotions.</b></h2>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+    
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+          <div class="item carousel-item active">
+            <div class="row">
+             
+              <div class="card col-sm-4" *ngFor="let article of tendances_1">
+            
+                <a  [routerLink]="['/detail',article.id_article]" style="text-decoration: none;color: black;"> 
+                  <img class="card-img-top" [src]="article.img_article" alt="Card image cap"   >
+                  <div class="card-body row justify-content-between" style="padding-left: 0px;" *ngIf=" article.taux_remise	 > '0'">
+                    <h5 class="col-8  card-title">{{article.designation}}</h5>
+                    <mat-chip  class="col-3 card-title text-center">{{ - article.taux_remise}} %</mat-chip> 
+         
+                    <p class="card-text col-12" style="color:rgb(0, 117, 185);">
+                      {{article.prix-(article.prix*article.taux_remise/100)}} TND 
+                      <s style="color:rgb(0, 0, 0);"> {{article.prix}} TND </s> </p>
+          
+                   </div>
+                  <div class="card-body" style="padding-left: 0px;" *ngIf=" article.taux_remise	 == '0'">
+                   <h5 class="card-title">{{article.designation}}</h5>
+                   <p class="card-text" > {{article.prix}} TND </p>
+                 </div>
+                
+                </a> 
+              </div> 
+        							
+       
+            </div>
+          </div>
+          <div class="item carousel-item">
+            <div class="row">
+            
+              <div class="card col-sm-4" *ngFor="let article of tendances_2">
+            
+                <a  [routerLink]="['/detail',article.id_article]" > 
+                  <img class="card-img-top" [src]="article.img_article" alt="Card image cap"   >
+                  <div class="card-body row justify-content-between" style="padding-left: 0px;" *ngIf=" article.taux_remise	 > '0'">
+                    <h5 class="col-8  card-title">{{article.designation}}</h5>
+                    <mat-chip  class="col-3 card-title text-center">{{ - article.taux_remise}} %</mat-chip> 
+         
+                    <p class="card-text col-12" style="color:rgb(0, 117, 185);">
+                      {{article.prix-(article.prix*article.taux_remise/100)}} TND 
+                      <s style="color:rgb(0, 0, 0);"> {{article.prix}} TND </s> </p>
+          
+                   </div>
+                  <div class="card-body" style="padding-left: 0px;" *ngIf=" article.taux_remise	 == '0'">
+                   <h5 class="card-title">{{article.designation}}</h5>
+                   <p class="card-text" > {{article.prix}} TND </p>
+                 </div>
+                
+                </a> 
+              </div> 
+            
+             
+             					
+            </div>
+          </div>
+          <div class="item carousel-item">
+            <div class="row">
+ 
+              <div class="card col-sm-4" *ngFor="let article of tendances_3">
+            
+                <a  [routerLink]="['/detail',article.id_article]" > 
+                  <img class="card-img-top" [src]="article.img_article" alt="Card image cap"   >
+                  <div class="card-body row justify-content-between" style="padding-left: 0px;" *ngIf=" article.taux_remise	 > '0'">
+                    <h5 class="col-8  card-title">{{article.designation}}</h5>
+                    <mat-chip  class="col-3 card-title text-center">{{ - article.taux_remise}} %</mat-chip> 
+         
+                    <p class="card-text col-12" style="color:rgb(0, 117, 185);">
+                      {{article.prix-(article.prix*article.taux_remise/100)}} TND 
+                      <s style="color:rgb(0, 0, 0);"> {{article.prix}} TND </s> </p>
+          
+                   </div>
+                  <div class="card-body" style="padding-left: 0px;" *ngIf=" article.taux_remise	 == '0'">
+                   <h5 class="card-title">{{article.designation}}</h5>
+                   <p class="card-text" > {{article.prix}} TND </p>
+                 </div>
+                
+                </a> 
+              </div> 
+           <!--   <div class="col-sm-3">
+                <div class="thumb-wrapper">
+                  <div class="img-box">
+                    <img src="/examples/images/products/iphone.jpg" class="img-responsive img-fluid" alt="">
+                  </div>
+                  <div class="thumb-content">
+                    <h4>Apple iPhone</h4>
+                    <p class="item-price">$369.00 <span>$349.00</span></p>
+                    <div class="star-rating">
+                      <ul class="list-inline">
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                      </ul>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                  </div>						
+                </div>
+              </div>
+            -->
+            </div>
+          </div>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </div>
+      </div>
+    </div>
+     <div class=" text-center container d-flex align-content-center flex-wrap cover_footer"  style="background-image:  url('assets/images/Cover_footer.PNG');">
+       <div class="row d-flex justify-content-end"> 
+        <div class="col-6 text-center">
+             <button type="button" class="btn btn-primary" style="width: 100px;margin: 5px;height: 30px;border-radius: 0px;text-shadow: #000 3px 0 10px;">Découvrire</button>
+            </div>
+      </div>
+     </div>
+    </div>
+ 
+
+   
+<app-footer></app-footer>

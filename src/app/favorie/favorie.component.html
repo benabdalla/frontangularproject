@@ -1,0 +1,28 @@
+
+ 
+        <div class="row col-12 "  style="margin-left: 10px;">
+  
+                <div class="card col-lg-2 col-sm-12" style="width: 15rem;" *ngFor="let favorie of favoris"  style="border-radius:0%;margin-left: 10px;background-color:transparent ;padding: 0;">
+                  <img [src]="favorie.article.img_article" class="card-img-top"  alt="..." style="border-radius:0%">
+                  <div class="card-body">
+                    <h5 class="card-title" style="height: 50px;">{{favorie.article.designation}}</h5>
+                    <div class="card-body " style="padding: 0;margin: 0;" >
+              
+                      <button type="button" class="btn btn-light col-6" (click)="Supprimer(favorie.article.id_article)" style="border-radius:0%;margin: 5px;">Supprimer</button>
+                      <button type="button"  class="btn btn-dark col-5" [routerLink]="['/detail',favorie.article.id_article]" style="border-radius:0%;">Acheté</button>
+
+                    </div>
+                  </div>
+                
+                </div>
+
+         </div> 
+         <div *ngIf='Aucun==0' class="col-12 text-center" > 
+           <h1>Favoris</h1>
+           <br>
+           <br>
+           <h5>SAUVEGARDEZ VOS ARTICLES FAVORIS</h5>
+           <p>Envie de sauvegarder les articles que vous adorez ? Cliquez tout simplement sur le symbole cœur sur l'article et il s'affichera ici.</p>
+           <button type="button"  class="btn btn-dark col-3" [routerLink]="['/']" style="border-radius:0%;" mat-dialog-close>PARCOURIR MAINTENANT</button>
+
+          </div>

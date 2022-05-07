@@ -1,0 +1,67 @@
+/*
+  .navbar{
+    background-color: #e5f2fa;
+}
+
+   .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+.navbar-nav.navbar-center>li {
+ margin-left: 50px;
+}
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+*/
+
+/* DEMO example styles for logo image */
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar{
+background-color: transparent;
+  border:0px;
+}
+
+.navbar-header {
+  padding: 15px;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+ 
+.dropdown:hover .dropdown-content {display: block;}
+
+
+::ng-deep{
+ 
+  .mat-dialog-container{
+    background-color:  #FAF9F8 !important; 
+    color: black;
+  }
+}

@@ -1,0 +1,9 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.p {
+    font-family: Lato;
+  }
+  .mat-slide-toggle {
+    margin: 8px 0;
+    display: block;
+}

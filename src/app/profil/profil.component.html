@@ -1,0 +1,266 @@
+<!--<app-navbar-espace-client></app-navbar-espace-client>
+
+<aside class="left-sidebar">
+    
+    <div class="scroll-sidebar">
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                
+                <li> <a class="waves-effect waves-dark" routerLinkActive="active"  routerLink="/voscommande" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Vos commande</span></a></li>
+                <li> <a class="waves-effect waves-dark" routerLink="/favorie" ria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu"></span>Votre liste d'envies</a></li>
+                <li> <a class="waves-effect waves-dark" routerLinkActive="active"  routerLink="/modifiermdp"aria-expanded="false"><i class="fa fa-warning" style="font-size:15px;color:red"></i><span class="hide-menu"></span>Modifier votre mot de passe
+                </a></li>
+                
+            </ul>
+        </nav>
+        </div>
+  
+</aside>
+<div class="page-wrapper"> 
+
+ 
+    <div class="container-fluid">
+     
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center " >
+                <h4 class="text-themecolor">Profile</h4>
+            </div>
+      
+            
+        </div>
+ 
+        <div class="row">
+             <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
+                            <h4 class="card-title m-t-10">Hanna Gover</h4>
+                            <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                            <div class="row text-center justify-content-md-center">
+                                <div class="col-4"><a href="javascript:void(0)" class="link" class="font-medium"><i class="icon-people"></i> </a></div>
+                                <div class="col-4"><a href="javascript:void(0)" class="link" class="font-medium"><i class="icon-picture"></i> </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-lg-8 col-xlg-9 col-md-7 " style="margin-left: 15%;">
+                <div class="card">
+                     <div class="card-body">
+                        <form class="form-horizontal form-material" (ngSubmit)="onFormSubmit($event)">
+                            <div class="form-group">
+                                <label class="col-md-12">Nom</label>
+                                <div class="col-md-12">
+                                    <input type="text" [value]="user.nom"  name="nom" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Prenom</label>
+                                <div class="col-md-12">
+                                    <input type="text"[value]="user.prenom" name="prenom" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-md-12">Numero telephone</label>
+                                <div class="col-md-12">
+                                    <input type="text" [value]="user.tel" name="tel" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Adresse</label>
+                                <div class="col-md-12">
+                                    <input type="text" [value]="user.adresse.lib_adresse" name="adresse" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-12">Région</label>
+                                <div class="col-sm-12" >
+                                     <select name="state"  id="exampleFormControlSelect1" (OnInit)='getuser()' [value]='stateCount'  class="rounded-inputs20 select-select form-control" (change)="onChangeState($event.target.value)" >
+                                       <option *ngFor="let country of countries"   [value]="country.id_state">{{country.lib_state}}</option>
+                                      </select>
+                                </div>
+                                <label class="col-sm-12">ville</label>
+                                <div class="col-sm-12">
+                                
+                                    <select id="sel1" name="city" [value]="cityCount" (OnInit)='getuser()' class="rounded-inputs20 select-select  form-control form-control-line">
+                                        <option *ngFor="let ct of city" [value]="ct.id_city">{{ct.lib_city}}</option>  
+                                      </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success">Update Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+         </div>
+       
+    </div>
+    
+</div> <br>
+
+-->
+<app-navbar2></app-navbar2>
+<nav class="navbar navbar-expand-lg navbar-light " style="margin-left: 30px;">
+    <div class="row justify-content-end collapse navbar-collapse" id="navbarTogglerDemo02">
+   
+        <div class=" d-sm-block navbar-brand text-center col-12"    >
+            <div class="separator text-uppercase"><span style="font-size: 12px;">BlueTwins.tn/Mon compte</span></div>
+ 
+            <ul class="navbar-nav text-center row justify-content-around"  style="font-weight: bold;margin-top: 10px;">
+                <li class="nav-item active">
+                    <a class="text-uppercase nav-link"  ><h6  *ngIf="MenuSelected!='GENERAL'"  (click)="MenuModif('GENERAL')">GENERAL </h6><h6 *ngIf="MenuSelected=='GENERAL'" style="text-decoration: underline gray;">GENERAL </h6></a>   
+                  </li>
+                  <li class="nav-item active">
+                      <a class="text-uppercase nav-link"  >
+                          <h6 *ngIf="MenuSelected!='cordonnées'"  (click)="MenuModif('cordonnées')">mes cordonnées </h6>
+                          <h6 *ngIf="MenuSelected=='cordonnées'" style="text-decoration: underline gray;">mes cordonnées </h6>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="text-uppercase nav-link"  >
+                            <h6 *ngIf="MenuSelected!='commandes'"   (click)="MenuModif('commandes')"  >MES commandes </h6>
+                            <h6 *ngIf="MenuSelected=='commandes'" style="text-decoration: underline gray;">MES commandes </h6>
+
+                        </a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="text-uppercase nav-link" >
+                            <h6 *ngIf="MenuSelected!='favor'" (click)="MenuModif('favor')">liste de favoris </h6>
+                            <h6 *ngIf="MenuSelected=='favor'" style="text-decoration: underline gray;">liste de favoris </h6>
+
+                        </a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="text-uppercase nav-link" >
+                            <h6  *ngIf="MenuSelected!='parametres'" (click)="MenuModif('parametres')">mes parametres</h6>
+                            <h6 *ngIf="MenuSelected=='parametres'" style="text-decoration: underline gray;">mes parametres </h6>
+
+                        </a>
+                      </li>
+              </ul> 
+<hr style="width:93%;border-width: 1px; background-color:black">
+            </div>
+</div>
+</nav>
+<div *ngIf="MenuSelected=='GENERAL'" style="margin-left: 70px;">
+<div class="col-12 row ">
+    <br> 
+  
+    <div class="col-4">
+        <h4 style="font-weight: bolder;">bonjour  {{user.prenom}} !</h4>
+        <p>Content de te voir, voici votre tableau de bord BT personnel ou vous pouvez mettre à jour vos informations personnelles et voir vos commandes </p>
+        <br> 
+        <h4 style="font-weight: bolder;">Votre compte </h4>
+        <p style="font-weight: bold;">   EMAIL  </p> 
+        <p>{{user.compte.login}}</p>
+        <p style="font-weight: bold;">TELEPHONE  </p>
+        <p >{{user.tel}}</p>
+    </div>
+    <div class="col-7">
+        <div  class="col " >
+            <P style="font-weight: bolder;">COMMANDES</P>
+             
+            <div class="table-responsive border= 2 ">
+                <table class="table">
+                    <thead  >
+                      
+                    </thead>
+                    <tbody  *ngFor="let commande of commmandes | filter:searchText" >
+                        <tr >
+                            <td><b>{{commande.date_cmd}} </b></td>
+
+                            <td>{{commande.id_cmd}}</td>
+                            <td>
+                                {{commande.prix_total}} TND
+                            </td>
+
+ 
+                            <td >
+                               <b>{{commande.etatcommande.etatcmd}} </b>                           
+                            </td>
+
+                        </tr>
+                                                          
+                    </tbody>
+                </table>
+            </div>
+         </div> 
+     
+    </div>
+</div>
+
+ </div>
+<app-favorie *ngIf="MenuSelected=='favor'"></app-favorie>
+
+<app-commandepassed *ngIf="MenuSelected=='commandes'"></app-commandepassed>
+<div *ngIf="MenuSelected=='cordonnées'">
+
+
+    <div class="row">
+         
+   
+       <div class="col-lg-8 col-xlg-9 col-md-7 " style="margin-left: 15%;">
+           <div class="card">
+                <div class="card-body">
+                   <form class="form-horizontal form-material" (ngSubmit)="onFormSubmit($event)">
+                       <div class="form-group">
+                           <label class="col-md-12">Nom</label>
+                           <div class="col-md-12">
+                               <input type="text" [value]="user.nom"  name="nom" class="form-control form-control-line">
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-12">Prenom</label>
+                           <div class="col-md-12">
+                               <input type="text"[value]="user.prenom" name="prenom" class="form-control form-control-line">
+                           </div>
+                       </div>
+                       
+                       <div class="form-group">
+                           <label class="col-md-12">Numero telephone</label>
+                           <div class="col-md-12">
+                               <input type="text" [value]="user.tel" name="tel" class="form-control form-control-line">
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-12">Adresse</label>
+                           <div class="col-md-12">
+                               <input type="text" [value]="user.adresse.lib_adresse" name="adresse" class="form-control form-control-line">
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-sm-12">Région</label>
+                           <div class="col-sm-12" >
+                                <select name="state"  id="exampleFormControlSelect1" (OnInit)='getuser()' [value]='stateCount'  class="rounded-inputs20 select-select form-control" (change)="onChangeState($event.target.value)" >
+                                  <option *ngFor="let country of countries"   [value]="country.id_state">{{country.lib_state}}</option>
+                                 </select>
+                           </div>
+                           <label class="col-sm-12">ville</label>
+                           <div class="col-sm-12">
+                           
+                               <select id="sel1" name="city" [value]="cityCount" (OnInit)='getuser()' class="rounded-inputs20 select-select  form-control form-control-line">
+                                   <option *ngFor="let ct of city" [value]="ct.id_city">{{ct.lib_city}}</option>  
+                                 </select>
+                           </div>
+                       </div>
+                       
+                       <div class="form-group">
+                           <div class="col-sm-12" align="end">
+                               <button class="btn btn-dark" >Modifier</button>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+    </div>
+</div>
+<app-modifpassword *ngIf="MenuSelected=='parametres'"></app-modifpassword>
+<app-footer></app-footer>

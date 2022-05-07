@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-light "  style="margin-left: 35px;">
+    <a class="navbar-brand d-lg-none d-md-block " href="#">
+        <div class="col-12" ><img src="assets/images/logo.png" class="img-fluid" alt="Responsive image"></div>
+    </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="row justify-content-end collapse navbar-collapse" id="navbarTogglerDemo02">
+   
+        <a class=" d-sm-block navbar-brand text-center col-6" href="#"  style="margin-top: 20px;">
+            <div class="d-none d-sm-block"><img src="assets/images/logo.png" width="150px" alt="Responsive image"></div>
+
+            <ul class="navbar-nav text-center row justify-content-center" style=" margin-top: 30px;">
+                <li class="nav-item active">
+                    <a class="text-uppercase nav-link" href="/categorie/Homme" ><h6>Homme </h6></a>
+                  </li>
+                  <li class="nav-item active">
+                      <a class="text-uppercase nav-link" href="/categorie/Femme"><h6>Femme </h6></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="text-uppercase nav-link" href="/categorie/Enfant"><h6>Enfant </h6></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="text-uppercase nav-link" href="/promotions"><h6>Promotions </h6></a>
+                      </li>
+              </ul> 
+
+        </a>
+
+        <div class=" w-100 order-3 dual-collapse2 col-md-3 col-sm-12  col-xs-12">
+            <ul class="navbar-nav ml-auto" style="margin-top: 0px;">
+            
+              <li class=" dropdown" *ngIf='!user' style="margin-top: 5px;"> 
+                <i class="fa fa-user-o"  style="font-size:22px;" ></i>&nbsp;<span>Connexion</span>
+                <div class="dropdown-content text-center "  style="margin-top: 5px;    min-height: 100px;           ">
+                  
+                  <button    (click)="openDialog()"  type="button" class="btn btn-dark" style="margin-bottom: 20px;margin-top: 20px;border-radius:0%">Connexion</button>
+                  <p (click)="openDialogRegistre()">Rejoignez-nous ici !</p>
+
+                 </div>
+                
+              </li> 
+              
+              <li class=" dropdown" *ngIf='user' style="margin-top: 5px; "> 
+                <i class="fa fa-user-o"  style="font-size:22px;" ></i>&nbsp;<span>{{prenom | slice:0:7}}</span>
+                <div class="dropdown-content text-center "  style="margin-top: 5px;min-height: 140px; ">
+                  
+                 <button    (click)='deconnexion()' type="button" class="btn btn-dark" style="margin-bottom: 20px;margin-top: 20px;border-radius:0%">Déconnexion</button>
+                    <button   class="btn btn-dark" style="border-radius:0%"><a  href="/profil"  style="color: white;text-decoration: none;">Mon Compte </a></button> 
+                </div>
+                
+              </li>
+
+              <!--<li class="nav-item">
+                <a class="nav-link" href="/profil"><i class="fa fa-user-o"  style="font-size:22px;"></i><span *ngIf='!user'>&nbsp;Connexion</span>
+                  <span *ngIf='user'>&nbsp;{{prenom | slice:0:7}}</span></a>
+              </li>-->
+              <li class="nav-item" *ngIf='user'>
+                <a class="nav-link" (click)="openDialogFavoris()" ><i class="fa fa-heart-o"  style="font-size:20px;"></i>Favoris</a>
+                <a class="nav-link"  *ngIf='!user'><i class="fa fa-heart-o"  style="font-size:20px;"></i>Favoris</a>
+              
+              </li>
+              <!---->
+              <li class="nav-item dropdown" *ngIf='!user'  > 
+                <a class="nav-link"  *ngIf='!user'><i class="fa fa-heart-o"   ></i>Favoris</a>
+                <div class="dropdown-content text-center dropdown-menu-right"  style="margin-top: 5px;    min-height: 90px; min-width: 300px;          ">
+                   <p (click)="openDialogRegistre()" style="font-weight: normal;margin-top: 15px;">Connectez-vous pour sauvegarder les articles que vous adorez!</p>
+                 </div>
+              </li> 
+            
+                
+                  <li class="nav-item" *ngIf='nbrArticles'>
+                    <a class="nav-link" href="/panier" ><i class="fa  fa-shopping-bag"  style="font-size:20px;"></i>&nbsp;Panier<span class="badge badge-primary" style="font-size:15px;opacity: 0.5;">{{nbrArticles}}</span></a>                  
+                  </li>
+                  <!---->
+                  <li class="nav-item dropdown" *ngIf='!nbrArticles'  > 
+                    <a class="nav-link"  *ngIf='!nbrArticles'><i class="fa fa-shopping-bag"   ></i>Panier</a>
+                    <div class="dropdown-content dropdown-menu-right text-center "  style="margin-top: 5px;    min-height: 50px; min-width: 300px;          ">
+                       <p style="font-weight: normal;margin-top: 15px;">Acune article dans votre panier!</p>
+                     </div>
+                  </li> 
+                 <!-- <li class="nav-item">
+                    <a class="nav-link" style="cursor:pointer;" *ngIf='user' (click)='deconnexion()' ><i class="fa fa-sign-out"  style="font-size:25px;" alt='deconexion'></i></a>
+                 
+                  </li>-->
+            </ul>
+            <div style="margin-top: 40px;">
+                <form class="form-inline d-flex justify-content-center md-form form-sm mt-0"  (ngSubmit)="recherche($event)" >
+                    <div  style="  border-bottom: 1px solid ;">
+                        <button class="fa fa-search" aria-hidden="true" style="opacity: 0.8;font-size: 20px;background-color: transparent;border:0px"></button>
+                    <input class="form-control form-control-sm ml-3 w-75 search" name="des" type="text" placeholder="Chercher produits"
+                      aria-label="Search" style="  background: transparent;border: none;"  >
+                    </div>
+                  </form>
+ 
+            </div>
+        </div>
+      </div>
+  </nav>

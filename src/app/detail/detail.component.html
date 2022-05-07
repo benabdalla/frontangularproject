@@ -1,0 +1,132 @@
+<app-navbar2></app-navbar2>
+
+<div  class="container-fluid " style="padding-top:100px;padding-bottom:140px;margin-left: 40px;" >
+    <div class="row">
+      <div class="col">
+  
+        <!-- Breadcrumbs -->
+  
+        <div class="breadcrumbs d-flex flex-row align-items-center">
+            <a style="color: black;font-weight: bold;" >{{Article.gender.gender_lib}}</a>&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<span style="color: black;font-weight: bold;" >{{Article.categorie.categorie_lib}}</span>
+        </div>
+  
+      </div>
+    </div>
+  <br><br>
+  <div class="row">
+    <div class="col-lg-8 col-ms-12" style="margin: 0px;padding: 0px;">
+      <img class="col-lg-6 col-ms-12"  [src]="Article.img_article" alt="" >
+      <img class="col-lg-6 col-ms-12"  [src]="Article.img_article" alt="" >
+      <div style="padding-left: 2%;padding-top:5% ; margin-right: 2%;">
+      <div class="card col-lg-12 col-ms-12">
+        <div class="card-body">
+   
+        {{Article.description_article}}
+     </div>
+     </div>
+    </div>
+    </div>
+
+      <div class="col-lg-3 col-ms-12">
+          <div class="product_details_title row">
+  
+                        <h3 class="col-10" style="padding: 0px;">{{Article.designation}} 
+                        </h3>
+                        <h3 class="col-2"><button  *ngIf='user' mat-icon-button (click)="toggleSelected()">
+
+                          <mat-icon style="color :crimson "
+                            *ngIf="selected"
+                            aria-label="Example icon-button with a heart icon">
+                            favorite
+                          </mat-icon>
+                        
+                          <mat-icon  style="color :crimson "
+                            *ngIf="!selected"
+                            aria-label="Example icon-button with a heart icon">
+                            favorite_border
+                          </mat-icon>
+                        
+                        </button></h3>
+          </div>
+
+          <div class="product_price row" *ngIf=" Article.taux_remise	 > '0'"> <span style="color: red;"> {{Article.prix-(Article.prix*Article.taux_remise/100)}} TND </span>&nbsp;&nbsp;&nbsp;<s>{{Article.prix| currency:'DNT '}}</s> </div>
+          <div class="product_price row" *ngIf=" Article.taux_remise	== '0'">  {{Article.prix| currency:'DNT '}}  </div>
+
+          <br><br>
+  <div *ngIf="quantiteSelected>0">
+         
+  <!-- <select  class="form-control" id="example-Size-input" (change)="quantite_Cal()">
+            <option  *ngFor="let taille of tailles"  > {{taille.taille.lib_taille}} </option>
+          </select>
+  -->
+     
+
+ 
+ <form   [formGroup]="form"  >
+    
+     
+                <div class="form-group row">
+                  <label for="inputSize" class="col-sm-4 col-form-label">Size</label>
+                  <div class="col-sm-8">
+                    <select class="col-8"   formControlName="type" class="validate form-control"   name="type" (change)="change($event)" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" formControlName="type" >
+                      <option  *ngFor="let taille of tailles" [value]="taille.taille.lib_taille" [label]="taille.taille.lib_taille" ></option>
+                    </select>
+                  </div>
+                </div>
+   </form>
+
+ <form  (ngSubmit)="ajouterpanier($event)" >
+  <div class="form-group row">
+    <label for="inputQuantite" class="col-sm-4 col-form-label">Quantité</label>
+    <div class="col-sm-8">
+      <input class="form-control" type="number"  name="quantites" value="0" min="1" [max]="quantiteSelected" step="1" >
+
+      
+                      </div>
+  </div>
+          
+  
+          <div class="row">
+            <button type="submit"  class="btn btn-dark col-lg-12 col-sm-12 col-md-12  col-12"  ><a style="  text-decoration: none;  color:white ;  font-weight: bold;" >Ajouter</a></button>
+          </div><br><br>
+          
+         
+        </form>
+      </div>
+      <div class="alert alert-secondary text-center" role="alert" *ngIf="quantiteSelected==0">
+        Out of stock!
+      </div>
+      
+      </div>
+    
+  </div>
+  <div style="padding-top: 5%;margin-bottom: -15%; margin-right: 100px;padding-left: 10px;">
+<h2>D'autres ont également acheté</h2>
+<div class="row" >
+    <div class="card col-xs-12 col-sm-6 col-lg-4 col-xl-3 col-md-6" *ngFor="let article of Products" style="padding: 5px; background: transparent;border: 0px;">
+      <a  [href]="['/detail'+'/'+article.id_article]" style="text-decoration: none;color: black;"> 
+      <img class="card-img-top" [src]="article.img_article" alt="Card image cap"   >
+       
+      <div class="card-body row justify-content-between" style="padding-left: 0px;" *ngIf=" article.taux_remise	 > '0'">
+        <h5 class="col-8  card-title">{{article.designation}}</h5>
+        <mat-chip  class="col-3 card-title text-center">{{ - article.taux_remise}} %</mat-chip> 
+
+        <p class="card-text col-12" style="color:rgb(0, 117, 185);">
+          {{article.prix-(article.prix*article.taux_remise/100)}} TND 
+          <s style="color:rgb(0, 0, 0);"> {{article.prix}} TND </s> </p>
+
+       </div>
+      <div class="card-body" style="padding-left: 0px;" *ngIf=" article.taux_remise	 == '0'">
+       <h5 class="card-title">{{article.designation}}</h5>
+       <p class="card-text" > {{article.prix}} TND </p>
+     </div>
+      </a> 
+
+    </div>               
+</div>
+  </div>
+  </div>
+
+ 
+
+  <app-footer></app-footer>
